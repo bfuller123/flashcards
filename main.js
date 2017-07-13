@@ -61,10 +61,13 @@ var options = {
   },
   "review": function() {
     console.log('This function is still being built');
+    main();
+    // TODO: Need to make it cycle through the basic cards and the cloze cards
   }
 }
 
 function main() {
+  loadCards();
   console.log("\n");
   inquirer.prompt([
     {
@@ -85,5 +88,9 @@ function main() {
     }
   });
 };
+
+function loadCards() {
+  // TODO: Upon loading, it should load the cards into flashCardsList
+}
 
 main();
