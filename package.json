@@ -1,0 +1,22 @@
+{
+  "name": "flashcards",
+  "version": "1.0.0",
+  "description": "backend flashcard maker",
+  "main": "BasicCard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfuller123/flashcards.git"
+  },
+  "author": "Brett Fuller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bfuller123/flashcards/issues"
+  },
+  "homepage": "https://github.com/bfuller123/flashcards#readme",
+  "dependencies": {
+    "inquirer": "^3.2.0"
+  }
+}
