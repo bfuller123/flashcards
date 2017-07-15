@@ -3,16 +3,9 @@ exports.ClozeCard = function(text, cloze) {
     this.fullText = text;
     this.cloze = cloze;
     this.partialText = text.replace(cloze, '...');
+    this.cardtype = "cloze";
   }
   else {
-    console.log('Please make sure the full text includes the removed words');
+    console.log('please make sure the full text includes the cloze statement');
   }
 }
-
-exports.ClozeCard.prototype.askQuestion = function () {
-  console.log(this.partialText);
-};
-
-exports.ClozeCard.prototype.revealAnswer = function () {
-  console.log(`${this.cloze}. ${this.fullText}`);
-};

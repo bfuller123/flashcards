@@ -1,1 +1,1 @@
-[{"front":"Who is George Washington?","back":"First President of the USA"}]
+{"basicCards":[{"front":"This is a test","back":"yay!","cardtype":"basic"},{"front":"Our test number two","back":"works!","cardtype":"basic"}],"clozeCards":[{"fullText":"this is a full test of this card","cloze":"this card","partialText":"this is a full test of ...","cardtype":"cloze"}]}

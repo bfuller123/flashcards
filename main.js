@@ -4,8 +4,8 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 var flashCardsList = {
-  basicCards = [],
-  clozeCards = []
+  basicCards: [],
+  clozeCards: []
 };
 
 var addObjectToFile = function(item, file) {
@@ -14,6 +14,25 @@ var addObjectToFile = function(item, file) {
   writeStream.write(stringOfItem);
   writeStream.end()
 }
+
+// function askQuestions(itemNumber, list, callback) {
+//   console.log(list[itemNumber].front);
+//   setTimeout(function() {
+//     console.log(list[itemNumber].back);
+//   }, 3000);
+//   itemNumber++;
+//   if (itemNumber === list.length) {
+//     if (list == flashCardsList.basicCards && flashCardsList.clozeCards > 0) {
+//       return askQuestions(0, flashCardsList.clozeCards, main);
+//     }
+//     else {
+//       callback();
+//     }
+//   }
+//   else {
+//     return askQuestions(itemNumber, list, callback);
+//   }
+// }
 
 var options = {
   helpList: ['create basic', 'create cloze', 'review', 'quit', 'help'],
@@ -60,14 +79,14 @@ var options = {
     });
   },
   "review": function() {
-    console.log('This function is still being built');
+    console.log('This is still under maintenance');
     main();
-    // TODO: Need to make it cycle through the basic cards and the cloze cards
+    // askQuestions(0, flashCardsList.basicCards, main);
   }
 }
 
+
 function main() {
-  loadCards();
   console.log("\n");
   inquirer.prompt([
     {
@@ -91,6 +110,19 @@ function main() {
 
 function loadCards() {
   // TODO: Upon loading, it should load the cards into flashCardsList
+  fs.readFile('./flashCards.txt', 'utf8', function(err, data) {
+    if(!err && data !== undefined){
+      data = JSON.parse(data);
+      flashCardsList.basicCards = data.basicCards;
+      flashCardsList.clozeCards = data.clozeCards;
+      main();
+    }
+    else {
+      flashCardsList.basicCards = [];
+      flashCardsList.clozeCards = [];
+      main();
+    }
+  });
 }
 
-main();
+loadCards();
